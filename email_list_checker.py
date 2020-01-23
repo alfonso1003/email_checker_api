@@ -9,7 +9,7 @@ class EmailListChecker:
     def _strip_email(email_address):
         """
         remove extra periods in username
-        remove eveything between + and @ symbols, inclusive
+        remove eveything between + and @ symbols, including +
         """
         return re.sub("(?:\.|\+.*)(?=.*?@)", "", email_address)
     
@@ -26,7 +26,6 @@ class EmailListChecker:
         valid = True
         for email in self.email_list:
             if not self._valid_email(email):
-                print(email)
                 valid = False
                 break
         return valid
