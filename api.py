@@ -8,7 +8,7 @@ from email_list_checker import EmailListChecker
 app = Flask(__name__)
 api = Api(app)
 
-class HelloWorld(Resource):
+class EmailListApi(Resource):
     def post(self):
         request_json = request.json
         email_list = request_json.get('email_list', [])    
@@ -17,7 +17,7 @@ class HelloWorld(Resource):
             return {"unique_email_count": elc.unique_email_count}, 200
         else:
             return {"error": "invalid email address"}, 400
-api.add_resource(HelloWorld, '/')
+api.add_resource(EmailListApi, '/')
 
 if __name__ == '__main__':
     app.run(debug=True)
