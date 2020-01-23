@@ -9,7 +9,7 @@ class EmailListCheckerTest(unittest.TestCase):
         self.assertTrue(elc.valid_email_list)
 
     def test_invalid_domain(self):
-        elc = EmailListChecker(['test.email@gmail.asdfasdfdasfdas'])
+        elc = EmailListChecker(['test.email@gmail'])
         self.assertFalse(elc.valid_email_list)
 
     def test_stripped_list_one(self):
